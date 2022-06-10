@@ -1,11 +1,10 @@
 <datasources xmlns="http://www.jboss.org/ironjacamar/schema">
-    <datasource jndi-name="java:jboss/datasources/exampleDS" pool-name="exampleDS">
+    <datasource jndi-name="java:jboss/datasources/apidb" pool-name="apidb">
         <driver>tp8.war_com.mysql.cj.jdbc.Driver_8_0</driver>
-        <connection-url>mysql://b755c106f4e82f:b74d6316@us-cdbr-east-05.cleardb.net/heroku_27f36c6c12e0e31?reconnect=true</connection-url>
+        <connection-url>mysql://b755c106f4e82f:b74d6316@us-cdbr-east-05.cleardb.net/heroku_27f36c6c12e0e31</connection-url>
         <security>
             <user-name>b755c106f4e82f</user-name>
             <password>b74d6316</password>
         </security>
     </datasource>
 </datasources>
-
