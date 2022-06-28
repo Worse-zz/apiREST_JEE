@@ -50,7 +50,7 @@ public class DepartementResource {
 		if (tokenIsGood(bearerToken)) { //boolean
 			return Response.ok(depbean.getAllDep()).build(); 
 		} else {
-			return Response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+			return Response.status(401).build();
 		}
 	  }
 
@@ -61,7 +61,7 @@ public class DepartementResource {
 		if (tokenIsGood(bearerToken)) { //boolean
 			return Response.ok(depbean.getById(name)).build(); 
 		} else {
-			return Response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+			return Response.status(401).build();
 		}  
 	  }
 	
@@ -73,7 +73,7 @@ public class DepartementResource {
 			depbean.addDep(departement);
 			return Response.ok().build();
 		} else {
-			return Response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+			return Response.status(401).build();
 		}  		
 	  }
 	
@@ -84,7 +84,7 @@ public class DepartementResource {
 		  depbean.deleteDep(idDepartement);
 		  return Response.ok().build();
 		} else {
-			return Response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+			return Response.status(401).build();
 		}
 	  }
 	
@@ -96,7 +96,7 @@ public class DepartementResource {
 			depbean.updateDepartementName(Departement);
 			return Response.ok().build();
 		} else {
-			return Response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+			return Response.status(401).build();
 		}
 	  }
 
@@ -129,7 +129,7 @@ public class DepartementResource {
 			usrbean.logoutV2(bearerToken);
 			return Response.ok().build();
 		} else {
-			return Response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+			return Response.status(401).build();
 		}
 	  }
 
