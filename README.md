@@ -16,7 +16,7 @@ Ce sont les API
 
 ### authent (POST)
 path : 
-```http://localhost:8080/RESTAPI/resources/departement/authent```
+```http://[SERVER]:[PORT]/RESTAPI/resources/departement/authent```
 body :
 ```yaml
 { "email : "username@domaine.tld", 
@@ -24,7 +24,7 @@ body :
 ```
 ### login  (POST)
 path :
- ```http://localhost:8080/RESTAPI/resources/departement//login ```
+ ```http://[SERVER]:[PORT]/RESTAPI/resources/departement/login ```
 body :
 ```yaml
 { "email : "username@domaine.tld", 
@@ -33,7 +33,7 @@ body :
 
 ### logout  (POST)
 path : 
-```http://localhost:8080/RESTAPI/resources/departement//logout```
+```http://[SERVER]:[PORT]/RESTAPI/resources/departement/logout```
 body :
 ```yaml
 { "email : "username@domaine.tld", 
@@ -46,14 +46,14 @@ Il existe 2 API GET disponible
 
 ### departement (GET)
 path : 
-```http://localhost:8080/RESTAPI/resources/departement/```
+```http://[SERVER]:[PORT]/RESTAPI/resources/departement/```
 authorization : 
 ```yaml
 { "bearerToken: "6a115178-e6ae-11ec-8fea-0242ac120002"}
 ```
 ### getById (GET)
 path : 
-```http://localhost:8080/RESTAPI/resources/departement/getByID/59```
+```http://[SERVER]:[PORT]/RESTAPI/resources/departement/getByID/59```
 authorization : 
 ```yaml
 { "bearerToken: "6a115178-e6ae-11ec-8fea-0242ac120002"}
@@ -62,7 +62,7 @@ authorization :
 Elle permet d'ajouter un département en base de donnée
 ### addDep(POST)
 path : 
-```http://localhost:8080/RESTAPI/resources/departement/addDep```
+```http://[SERVER]:[PORT]/RESTAPI/resources/departement/addDep```
 authorization : 
 ```yaml
 { "bearerToken: "6a115178-e6ae-11ec-8fea-0242ac120002"}
@@ -78,7 +78,7 @@ body :
 Elle permet de mettre à jour un département en base de donnée en fonction de son numéro de département
 ### update(PUT)
 path : 
-```http://localhost:8080/RESTAPI/resources/departement/update```
+```http://[SERVER]:[PORT]/RESTAPI/resources/departement/update```
 authorization : 
 ```yaml
 { "bearerToken: "6a115178-e6ae-11ec-8fea-0242ac120002"}
@@ -92,7 +92,7 @@ body :
 Elle permet de supprimer un département en base de donnée en fonction de son numéro de département
 ### deleteDep(DELETE)
 path : 
-```http://localhost:8080/RESTAPI/resources/departement/deleteDep/59```
+```http://[SERVER]:[PORT]/RESTAPI/resources/departement/deleteDep/59```
 authorization : 
 ```yaml
 { "bearerToken: "6a115178-e6ae-11ec-8fea-0242ac120002"}
