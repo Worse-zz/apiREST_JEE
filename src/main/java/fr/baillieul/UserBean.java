@@ -22,6 +22,10 @@ public class UserBean {
         return userDAO.deleteToken(user);
     }
 
+    public boolean logoutV2(String bearerToken){
+        return userDAO.deleteTokenV2(bearerToken);
+    }   
+
     public String checkToken(String token){
         return userDAO.getToken(token);
     }

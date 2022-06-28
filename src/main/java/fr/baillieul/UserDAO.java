@@ -104,7 +104,29 @@ public class UserDAO {
             Logger.getGlobal().log(Level.SEVERE, "JPA error" + e.getMessage());
             return false;
         }
-    }   
+    }
+    
+    public boolean deleteTokenV2(String Token) {
+        deleteToken(getUserFromToken(Token));
+    }
+
+    public User getUserFromToken(String token){
+        TypedQuery<User> query = entityManager.createQuery(
+            "SELECT u FROM User u WHERE u.token = :token", User.class);
+        try{
+            User bddUser = query
+                .setParameter("token", token)    
+                .getSingleResult();
+            if (bddUser == null){
+                Logger.getGlobal().log(Level.SEVERE, "Token non assigné, merci de vous authentifier et de vous logger");
+            }
+            return bddUser;
+        }catch (Exception e){
+            Logger.getGlobal().log(Level.SEVERE, "JPA error" + e.getMessage());
+            return null;
+        }
+
+    }
 
     public String getToken(String token){
         TypedQuery<User> query = entityManager.createQuery(

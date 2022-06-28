@@ -50,7 +50,7 @@ public class DepartementResource {
 		if (tokenIsGood(bearerToken)) { //boolean
 			return Response.ok(depbean.getAllDep()).build(); 
 		} else {
-			return Response.serverError().build();
+			return Response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
 		}
 	  }
 
@@ -61,7 +61,7 @@ public class DepartementResource {
 		if (tokenIsGood(bearerToken)) { //boolean
 			return Response.ok(depbean.getById(name)).build(); 
 		} else {
-			return Response.serverError().build();
+			return Response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
 		}  
 	  }
 	
@@ -73,7 +73,7 @@ public class DepartementResource {
 			depbean.addDep(departement);
 			return Response.ok().build();
 		} else {
-			return Response.serverError().build();
+			return Response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
 		}  		
 	  }
 	
@@ -84,7 +84,7 @@ public class DepartementResource {
 		  depbean.deleteDep(idDepartement);
 		  return Response.ok().build();
 		} else {
-			return Response.serverError().build();
+			return Response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
 		}
 	  }
 	
@@ -96,7 +96,7 @@ public class DepartementResource {
 			depbean.updateDepartementName(Departement);
 			return Response.ok().build();
 		} else {
-			return Response.serverError().build();
+			return Response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
 		}
 	  }
 
@@ -119,6 +119,18 @@ public class DepartementResource {
 	  @Consumes(MediaType.APPLICATION_JSON)
 	  public Response postLogout(User user) {
 		return Response.ok(usrbean.logout(user)).build();
+	  }
+
+	  @POST
+	  @Path("/logoutV2") //Suppression du token au compte
+	  @Consumes(MediaType.APPLICATION_JSON)
+	  public Response postLogoutV2(@HeaderParam("Authorization") String bearerToken) {
+		if (tokenIsGood(bearerToken)) { //boolean
+			usrbean.logoutV2(bearerToken);
+			return Response.ok().build();
+		} else {
+			return Response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+		}
 	  }
 
 }
