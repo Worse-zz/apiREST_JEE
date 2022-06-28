@@ -107,7 +107,7 @@ public class UserDAO {
     }
     
     public boolean deleteTokenV2(String Token) {
-        deleteToken(getUserFromToken(Token));
+        return deleteToken(getUserFromToken(Token));
     }
 
     public User getUserFromToken(String token){
